@@ -2,35 +2,35 @@ my fork of suckless simple terminal (st)
 
 ## installation
 
-'''
+```
 
 git clone https://github.com/whiteapolo/st
 cd st
 sudo make clean install
 
-'''
+```
 
 ## run st
-'''sh
+```
 st
-'''
+```
 
 ## notes
 The font I use is ubuntu mono. you can find it [here](https://github.com/whiteapolo/dots-files)
 if you dont want to use your system defualt font than:
-'''sh
+```
 cd st
 vim config.h // use any text editor you want
-'''
+```
 change the line:
-'''sh
+```
 static char *font = "UbuntuMONO-R:pixelsize=22:antialias=true:autohint=true";
-'''
+```
 to: 
-'''sh
+```
 static char *font = "mono:pixelsize=22:antialias=true:autohint=true";
-'''
+```
 than exit and type: 
-''' 
+```
 sudo make clean install
-'''
+```
