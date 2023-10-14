@@ -2,10 +2,12 @@ my fork of suckless simple terminal (st)
 
 ## installation
 
-'''sh
+'''
+
 git clone https://github.com/whiteapolo/st
 cd st
 sudo make clean install
+
 '''
 
 ## run st
