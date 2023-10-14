@@ -14,7 +14,8 @@ st
 
 ## notes
 The font I use is ubuntu mono. you can find it [here](https://github.com/whiteapolo/dots-files)
-if you dont want to use your system defualt font than:
+
+if you **want** to use your **system defualt** font than:
 ```
 cd st
 vim config.h // use any text editor you want
