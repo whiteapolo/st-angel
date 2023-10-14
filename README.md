@@ -13,7 +13,7 @@ st
 ```
 
 ## notes
-The font I use is ubuntu mono. you can find it [here](https://github.com/whiteapolo/dots-files)
+The font I use is ubuntu mono. you can find it [here](https://github.com/whiteapolo/dots-files) and copy it to /usr/share/fonts
 
 if you **want** to use your **system defualt** font than:
 ```
