@@ -5,6 +5,11 @@ my fork of suckless simple terminal (st)
 
 ![Image](demo1.jpg)   ![Image](demo2.jpg)
 
+<p float="left">
+  <img src="demo1.jpg" alt="Image 1" width="100" />
+  <img src="demo2.jpg" alt="Image 2" width="100" />
+</p>
+
 
 
 
