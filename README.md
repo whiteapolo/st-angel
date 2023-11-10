@@ -3,14 +3,9 @@ my fork of suckless simple terminal (st)
 
 ## Preview
 
+<img src="demo1.jpg" alt="Image" width="448" height="200">
 
-
-<p float="center">
-  <img src="demo1.jpg" alt="Image 1" width="400" />
-  <img src="demo2.jpg" alt="Image 2" width="530" />
-</p>
-
-
+<img src="demo2.jpg" alt="Image" width="528" height="594">
 
 
 
