@@ -5,7 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "UbuntuMONO-R:pixelsize=22:antialias=true:autohint=true";
+//static char *font = "UbuntuMonoNerdFont-Regular:pixelsize=22:antialias=true:autohint=true";
+//static char *font = "UbuntuMono-R:pixelsize=22:antialias=true:autohint=true";
+static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -99,30 +101,25 @@ float alpha = 0.85;
 /* Terminal colors (16 first used in escape sequence) */
 
 static const char *colorname[] = {
-    "#202020",
-    "#cc241d",
-    "#98971a",
-    "#d79921",
-    "#458588",
-    "#b16286",
-    "#689d6a",
-    "#a89984",
+  "#1c2021",
+  "#cc241d",
+  "#98971a",
+  "#db930d",
+  "#458588",
+  "#c48084",
+  "#83b273",
+  "#857a6a",
 
-    "#928374",
-    "#fb4934",
-    "#b8bb26",
-    "#fabd2f",
-    "#83a598",
-    "#d3869b",
-    "#8ec07c",
-    "#ebdbb2",
+  "#857a6a",
+  "#fb4934",
+  "#b8bb26",
+  "#e69a0e",
+  "#83a598",
+  "#c36a6e",
+  "#8ec07c",
+  "#ebdbb2",
 
     [255] = 0,
-
-    "#cccccc",
-    "#555555",
-    "gray90",
-    "black",
 };
 
 
@@ -144,8 +141,8 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 80;
-static unsigned int rows = 42;
+static unsigned int cols = 54;
+static unsigned int rows = 14;
 
 /*
  * Default colour and shape of the mouse cursor
@@ -200,8 +197,10 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  1} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  2} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  2} },
+	//{ ControlMask,            XK_k,     kscrollup,      {.i =  2} },
+	//{ ControlMask,            XK_j,			kscrolldown,    {.i =  2} },
 };
 
 /*
