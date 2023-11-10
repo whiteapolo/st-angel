@@ -3,9 +3,7 @@ my fork of suckless simple terminal (st)
 
 ## Preview
 
-![Image](demo1.jpg)
-
-![Image](demo2.jpg)
+![Image](demo1.jpg)   ![Image](demo2.jpg)
 
 
 
