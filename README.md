@@ -13,7 +13,13 @@ st
 ```
 
 ## notes
-The font I use is ubuntu mono. you can find it [here](https://github.com/whiteapolo/dots-files) and copy it to /usr/share/fonts
+The font I use is CascadiaCode. 
+if you want to use this font you will have to download CascadiaCode.tff and put it in /usr/share/fonts
+
+if you want to use another font you can just change the font name in config.h 
+```
+static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
+```
 
 if you **want** to use your **system defualt** font than:
 ```
