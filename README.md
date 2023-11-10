@@ -1,5 +1,17 @@
 my fork of suckless simple terminal (st)
 
+
+## Preview
+
+![Image](demo1)
+
+![Image](demo2)
+
+
+
+
+
+
 ## installation
 ```
 git clone https://github.com/whiteapolo/st
