@@ -22,13 +22,9 @@ static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
 ```
 
 if you **want** to use your **system defualt** font than:
+in config.h change the line:
 ```
-cd st
-vim config.h // use any text editor you want
-```
-change the line:
-```
-static char *font = "UbuntuMONO-R:pixelsize=22:antialias=true:autohint=true";
+static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
 ```
 to: 
 ```
