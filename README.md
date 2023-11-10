@@ -5,7 +5,7 @@ my fork of suckless simple terminal (st)
 
 
 
-<p float="left">
+<p float="center">
   <img src="demo1.jpg" alt="Image 1" width="400" />
   <img src="demo2.jpg" alt="Image 2" width="530" />
 </p>
