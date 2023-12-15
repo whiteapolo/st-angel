@@ -8,6 +8,7 @@
 //static char *font = "UbuntuMonoNerdFont-Regular:pixelsize=22:antialias=true:autohint=true";
 //static char *font = "UbuntuMono-R:pixelsize=22:antialias=true:autohint=true";
 static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
+/* static char *font = "BigBlueTerm437NerdFontMono-Regular:pixelsize=18:antialias=true:autohint=true"; */
 static int borderpx = 2;
 
 /*
@@ -101,7 +102,7 @@ float alpha = 0.85;
 /* Terminal colors (16 first used in escape sequence) */
 
 static const char *colorname[] = {
-  "#1c2021",
+  "#181818",
   "#cc241d",
   "#98971a",
   "#db930d",
@@ -115,7 +116,7 @@ static const char *colorname[] = {
   "#b8bb26",
   "#e69a0e",
   "#83a598",
-  "#c36a6e",
+  "#c58085",
   "#8ec07c",
   "#ebdbb2",
 
@@ -141,8 +142,8 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 54;
-static unsigned int rows = 14;
+static unsigned int cols = 82;
+static unsigned int rows = 26;
 
 /*
  * Default colour and shape of the mouse cursor
@@ -472,3 +473,4 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
