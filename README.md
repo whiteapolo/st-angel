@@ -22,7 +22,7 @@ sudo make clean install
 st
 ```
 
-## bindig 
+## key binding 
 scrolling up:     Shift + PageUp     <or>   Shift + ScrollUp
 scrolling down:   Shift + PageDown   <or>   Shift + ScrollUp
 zoom-in:          ctrl + plus
