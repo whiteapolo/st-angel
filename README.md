@@ -22,6 +22,13 @@ sudo make clean install
 st
 ```
 
+## bindig 
+scrolling up:     Shift + PageUp     <or>   Shift + ScrollUp
+scrolling down:   Shift + PageDown   <or>   Shift + ScrollUp
+zoom-in:          ctrl + plus
+zoom-out:          ctrl + underscore
+
+
 ## notes
 The font I use is CascadiaCode. 
 if you want to use this font you will have to download CascadiaCode.tff and put it in /usr/share/fonts
