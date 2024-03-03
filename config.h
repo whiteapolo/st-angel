@@ -7,9 +7,9 @@
  */
 //static char *font = "UbuntuMonoNerdFont-Regular:pixelsize=22:antialias=true:autohint=true";
 //static char *font = "UbuntuMono-R:pixelsize=22:antialias=true:autohint=true";
-static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
-/* static char *font = "BigBlueTerm437NerdFontMono-Regular:pixelsize=18:antialias=true:autohint=true"; */
-static int borderpx = 2;
+/* static char *font = "CascadiaCode:pixelsize=21:antialias=true:autohint=true"; */
+static char *font = "JetBrainsMonoNL:pixelsize=21:antialias=true:autohint=false";
+static int borderpx = 20;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -98,20 +98,23 @@ unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.85;
+/* float alpha = 1; */
 
 /* Terminal colors (16 first used in escape sequence) */
 
 static const char *colorname[] = {
+
   "#181818",
+
   "#cc241d",
   "#98971a",
   "#db930d",
   "#458588",
   "#c48084",
   "#83b273",
-  "#857a6a",
+  "#87786b",
 
-  "#857a6a",
+  "#87786b",
   "#fb4934",
   "#b8bb26",
   "#e69a0e",
@@ -120,14 +123,18 @@ static const char *colorname[] = {
   "#8ec07c",
   "#ebdbb2",
 
-    [255] = 0,
+  "#675b52",
+  "#544b53",
+  "#2c2c2b",
+
+  [255] = 0,
 };
 
 
 unsigned int defaultfg = 15;
 unsigned int defaultbg = 0;
 unsigned int defaultcs = 15;
-static unsigned int defaultrcs = 257;
+static unsigned int defaultrcs = 15;
 
 /*
  * Default shape of cursor
@@ -142,8 +149,11 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 82;
-static unsigned int rows = 26;
+static unsigned int cols = 80;
+static unsigned int rows = 21;
+
+/* static unsigned int cols = 64; */
+/* static unsigned int rows = 18; */
 
 /*
  * Default colour and shape of the mouse cursor
@@ -171,8 +181,8 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ ShiftMask,            Button4, kscrollup,      {.i = 1} },
-	{ ShiftMask,            Button5, kscrolldown,    {.i = 1} },
+	{ NULL,            Button4, kscrollup,      {.i = 5} },
+	{ NULL,            Button5, kscrolldown,    {.i = 5} },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
@@ -198,8 +208,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i =  2} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i =  2} },
+	{ NULL,            XK_Page_Up,     kscrollup,      {.i =  2} },
+	{ NULL,            XK_Page_Down,   kscrolldown,    {.i =  2} },
 	//{ ControlMask,            XK_k,     kscrollup,      {.i =  2} },
 	//{ ControlMask,            XK_j,			kscrolldown,    {.i =  2} },
 };
