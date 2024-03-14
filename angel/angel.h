@@ -7,18 +7,21 @@
 #include <ctype.h>
 #include "dict.h"
 
-#define ASSERT(con, msg) if (con) { printf("ERROR: %s\n", msg); exit(1); }
+#define ASSERT(con, msg) if (con) { printf("ERROR: %s\n", msg); return 1; }
 #define READ_TOKEN_TILL(curr, dest, till)      \
 		dest = curr;                   \
 		curr = strchr(curr, till);     \
-		ASSERT(!curr, "Syntax Error"); \
+		if (!curr) {                   \
+			puts("Syntax Error");  \
+			return;                \
+		}                              \
 		*curr = '\0';                  \
 		curr++;                        \
 
 char *buf;
 Dict dict;
 
-void agl_init(const char *file_name);
+int agl_init(const char *file_name);
 void agl_destory();
 void *agl_get(char *key);
 int *agl_get_int(char *key);
@@ -28,14 +31,14 @@ float *agl_get_float(char *key);
 
 void *mk_token(char *val);
 int _get_file_size(FILE *f);
-void _read_whole_file(FILE *f, int size);
+int _read_whole_file(FILE *f, int size);
 void _dict_it();
 
 bool *booldup(bool b);
 int *intdup(int b);
 float *floatdup(float b);
 
-void agl_init(const char *file_name)
+int agl_init(const char *file_name)
 {
 	FILE *f;
 	ASSERT(!(f = fopen(file_name, "r")), "could not read file");
@@ -44,6 +47,7 @@ void agl_init(const char *file_name)
 	fclose(f);
 	dict_init(&dict, size / 10);
 	_dict_it();
+	return 0;
 }
 
 void agl_destory()
@@ -115,12 +119,13 @@ const char *agl_get_string(char *key)
 	char *tmp = dict_find(&dict, key);
 	return tmp;
 }
-void _read_whole_file(FILE *f, int size)
+int _read_whole_file(FILE *f, int size)
 {
 	buf = malloc(sizeof(char) * (size + 1));
 	ASSERT(!fread(buf, sizeof(char), size, f), "Problem reading file");
 	buf[size-1] = '\n';
 	buf[size] = '\0';
+	return 0;
 }
 
 int _get_file_size(FILE *f)

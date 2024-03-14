@@ -2144,7 +2144,8 @@ void parse_config_file()
 {
 	char path[100];
 	sprintf(path, "%s%s", getenv("HOME"), "/.config/st/st.conf");
-	agl_init(path);
+	if (agl_init(path))
+		return;
 
 	config_font();
 	set_int("borderpx", &borderpx);
