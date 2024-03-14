@@ -6,8 +6,8 @@ VERSION = 0.9
 # paths
 PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man
-ICONPREFIX = $(PREFIX)/share/pixmaps
-ICONNAME = st.png
+ICONPREFIX = /home/$(USER)/.config/st
+ICONNAME = icon.png
 
 X11INC = /usr/X11R6/include
 X11LIB = /usr/X11R6/lib

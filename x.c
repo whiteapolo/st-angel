@@ -1251,6 +1251,7 @@ xinit(int cols, int rows)
 
 	/* use a png-image to set _NET_WM_ICON */
 	FILE* file = fopen(ICON, "r");
+	/* FILE* file = fopen("/home/white/.config/st/icon.png", "r"); */
 	if (file) {
 		/* load image in rgba-format */
 		const gdImagePtr icon_rgba = gdImageCreateFromPng(file);
@@ -2127,14 +2128,25 @@ void set_string(char *name, char **var)
 	}
 }
 
+void config_font()
+{
+	const char *f_name = agl_get_string("font-name");
+	int *f_size = agl_get_int("font-size");
+
+	if (f_name)
+		strcpy(font_name, f_name);
+	if (f_size)
+		font_size = *f_size;
+	sprintf(font, "%s:pixelsize=%d:%s", font_name, font_size, font_options);
+}
+
 void parse_config_file()
 {
 	char path[100];
-	path[0] = '\0';
-	strcat(path, getenv("HOME"));
-	strcat(path, "/.config/st/st.conf");
+	sprintf(path, "%s%s", getenv("HOME"), "/.config/st/st.conf");
 	agl_init(path);
 
+	config_font();
 	set_int("borderpx", &borderpx);
 	set_int("cols", &cols);
 	set_int("rows", &rows);
