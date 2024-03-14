@@ -2129,7 +2129,11 @@ void set_string(char *name, char **var)
 
 void parse_config_file()
 {
-	agl_init("/home/white/.config/st/st.conf");
+	char path[100];
+	path[0] = '\0';
+	strcat(path, getenv("HOME"));
+	strcat(path, "/.config/st/st.conf");
+	agl_init(path);
 
 	set_int("borderpx", &borderpx);
 	set_int("cols", &cols);
