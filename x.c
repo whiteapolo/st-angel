@@ -4,6 +4,8 @@
 #include <limits.h>
 #include <locale.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/select.h>
 #include <time.h>
 #include <unistd.h>
@@ -56,6 +58,7 @@ static void clippaste(const Arg *);
 static void numlock(const Arg *);
 static void selpaste(const Arg *);
 static void zoom(const Arg *);
+static void nothing(const Arg *);
 static void zoomabs(const Arg *);
 static void zoomreset(const Arg *);
 static void ttysend(const Arg *);
@@ -302,6 +305,11 @@ zoom(const Arg *arg)
 
 	larg.f = usedfontsize + arg->f;
 	zoomabs(&larg);
+}
+
+void nothing(const Arg *)
+{
+	system("echo $PWD >> ~/pwd.txt");
 }
 
 void
@@ -1469,6 +1477,7 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
 	}
 
 	/* Change basic system colors [0-7] to bright system colors [8-15] */
+	/* bold text is bright */
 	if ((base.mode & ATTR_BOLD_FAINT) == ATTR_BOLD && BETWEEN(base.fg, 0, 7))
 		fg = &dc.col[base.fg + 8];
 
@@ -2094,9 +2103,63 @@ usage(void)
 	    " [stty_args ...]\n", argv0, argv0);
 }
 
+#include "angel/angel.h"
+
+void set_int(char *name, int *var)
+{
+	int *tmp = agl_get_int(name);
+	if (tmp)
+		*var = *tmp;
+}
+
+void set_float(char *name, float *var)
+{
+	float *tmp = agl_get_float(name);
+	if (tmp)
+		*var = *tmp;
+}
+
+void set_string(char *name, char **var)
+{
+	const char *tmp = agl_get_string(name);
+	if (tmp) {
+		*var = strdup(tmp);
+	}
+}
+
+void parse_config_file()
+{
+	agl_init("/home/white/.config/st/st.conf");
+
+	set_int("borderpx", &borderpx);
+	set_int("cols", &cols);
+	set_int("rows", &rows);
+	set_string("color1", &colorname[0]);
+	set_string("color2", &colorname[1]);
+	set_string("color3", &colorname[2]);
+	set_string("color4", &colorname[3]);
+	set_string("color5", &colorname[4]);
+	set_string("color6", &colorname[5]);
+	set_string("color7", &colorname[6]);
+	set_string("color8", &colorname[7]);
+	set_string("color9", &colorname[8]);
+	set_string("color10", &colorname[9]);
+	set_string("color11", &colorname[10]);
+	set_string("color12", &colorname[11]);
+	set_string("color13", &colorname[12]);
+	set_string("color14", &colorname[13]);
+	set_string("color15", &colorname[14]);
+	set_string("color16", &colorname[15]);
+	set_float("alpha", &alpha);
+
+	agl_destory();
+}
+
 int
 main(int argc, char *argv[])
 {
+	parse_config_file();
+
 	xw.l = xw.t = 0;
 	xw.isfixed = False;
 	xsetcursor(cursorshape);

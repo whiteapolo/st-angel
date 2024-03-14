@@ -8,7 +8,8 @@
 //static char *font = "UbuntuMonoNerdFont-Regular:pixelsize=22:antialias=true:autohint=true";
 //static char *font = "UbuntuMono-R:pixelsize=22:antialias=true:autohint=true";
 /* static char *font = "CascadiaCode:pixelsize=21:antialias=true:autohint=true"; */
-static char *font = "JetBrainsMonoNL:pixelsize=21:antialias=true:autohint=false";
+static char *font = "JetBrainsMonoNL:pixelsize=22:antialias=true:autohint=false";
+/* static char *font = "mono:pixelsize=21:antialias=true:autohint=false"; */
 static int borderpx = 20;
 
 /*
@@ -102,7 +103,7 @@ float alpha = 0.85;
 
 /* Terminal colors (16 first used in escape sequence) */
 
-static const char *colorname[] = {
+static char *colorname[] = {
 
   "#181818",
 
@@ -181,8 +182,8 @@ static uint forcemousemod = ShiftMask;
  */
 static MouseShortcut mshortcuts[] = {
 	/* mask                 button   function        argument       release */
-	{ NULL,            Button4, kscrollup,      {.i = 5} },
-	{ NULL,            Button5, kscrolldown,    {.i = 5} },
+	{ XK_ANY_MOD,            Button4, kscrollup,      {.i = 5} },
+	{ XK_ANY_MOD,            Button5, kscrolldown,    {.i = 5} },
 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
@@ -193,6 +194,8 @@ static MouseShortcut mshortcuts[] = {
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
 #define TERMMOD (ControlMask|ShiftMask)
+
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -208,8 +211,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ NULL,            XK_Page_Up,     kscrollup,      {.i =  2} },
-	{ NULL,            XK_Page_Down,   kscrolldown,    {.i =  2} },
+	{ XK_ANY_MOD,            XK_Page_Up,     kscrollup,      {.i =  2} },
+	{ XK_ANY_MOD,            XK_Page_Down,   kscrolldown,    {.i =  2} },
 	//{ ControlMask,            XK_k,     kscrollup,      {.i =  2} },
 	//{ ControlMask,            XK_j,			kscrolldown,    {.i =  2} },
 };
