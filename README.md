@@ -1,5 +1,15 @@
 my fork of suckless simple terminal (st)
 
+st-angel uses a config file located at ~/.config/st/st.conf
+in this config file you can define fonts and colors to be used
+so you can modify the program on the fly without compiling each time you
+want to change your colorscheme.
+take a look at st.conf.example 
+
+is this against the suckless philpospy? 
+yes but i dont care, i took it as a personal project
+plus i like changing the colorscheme and fonts without compiling the source each time.
+
 
 ## Preview
 
@@ -11,43 +21,22 @@ my fork of suckless simple terminal (st)
 
 
 ## installation
-```
+```sh
 git clone https://github.com/whiteapolo/st
-cd st
+cd st-angel
 sudo make clean install
 ```
 
 ## run st
-```
+```sh
 st
 ```
 
-## key binding 
-scrolling up:     Shift + PageUp     <or>   Shift + ScrollUp
-scrolling down:   Shift + PageDown   <or>   Shift + ScrollUp
-zoom-in:          ctrl + plus
-zoom-out:          ctrl + underscore
+## Scrolling
+PageUp to scroll up
+PageDown to scroll down
+you can also scroll with the mouse
 
-
-## notes
-The font I use is CascadiaCode. 
-if you want to use this font you will have to download CascadiaCode.tff and put it in /usr/share/fonts
-
-if you want to use another font you can just change the font name in config.h 
-```
-static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
-```
-
-if you **want** to use your **system defualt** font than:
-in config.h change the line:
-```
-static char *font = "CascadiaCode:pixelsize=20:antialias=true:autohint=true";
-```
-to: 
-```
-static char *font = "mono:pixelsize=22:antialias=true:autohint=true";
-```
-than exit and type: 
-```
-sudo make clean install
-```
+## Zoom
+zoom-in:     ctrl + plus
+zoom-out:    ctrl + underscore
