@@ -40,3 +40,6 @@ you can also scroll with the mouse
 ## Zoom
 zoom-in:     ctrl + plus
 zoom-out:    ctrl + underscore
+
+## icon
+put your desired icon at ~/.config/st/icon.png
