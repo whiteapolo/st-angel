@@ -13,9 +13,9 @@ plus i like changing the colorscheme and fonts without compiling the source each
 
 ## Preview
 
-<img src="1demo.jpg" alt="Image" width="448" height="270">
+<img src="preview1.jpg" alt="Image">
 
-<img src="2demo.jpg" alt="Image" width="528" height="594">
+<img src="preview2.jpg" alt="Image">
 
 
 
