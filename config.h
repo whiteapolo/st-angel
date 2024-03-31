@@ -10,7 +10,7 @@
 /* static char *font = "CascadiaCode:pixelsize=21:antialias=true:autohint=true"; */
 static char font[100];
 /* = "JetBrainsMonoNL:pixelsize=22:antialias=true:autohint=false"; */
-static char font_name[] = "JetBrainsMonoNL";
+static char font_name[50] = "JetBrainsMonoNL:Regular";
 static int font_size = 22;
 static char font_options[] = "antialias=true:autohint=false";
 /* static char *font = "mono:pixelsize=21:antialias=true:autohint=false"; */

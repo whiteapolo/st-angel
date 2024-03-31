@@ -2106,38 +2106,63 @@ usage(void)
 
 #include "angel/angel.h"
 
-void set_int(char *name, int *var)
-{
-	int *tmp = agl_get_int(name);
-	if (tmp)
-		*var = *tmp;
-}
-
-void set_float(char *name, float *var)
-{
-	float *tmp = agl_get_float(name);
-	if (tmp)
-		*var = *tmp;
-}
-
-void set_string(char *name, char **var)
-{
-	const char *tmp = agl_get_string(name);
-	if (tmp) {
-		*var = strdup(tmp);
-	}
-}
-
 void config_font()
 {
-	const char *f_name = agl_get_string("font-name");
-	int *f_size = agl_get_int("font-size");
+	char f_name[256];
+	agl_get_string("font-name", font_name);
+	int f_size;
+	agl_get_int("font-size", &font_size);
+	sprintf(font, "%s:size=%d:%s", font_name, font_size, font_options);
+}
 
-	if (f_name)
-		strcpy(font_name, f_name);
-	if (f_size)
-		font_size = *f_size;
-	sprintf(font, "%s:pixelsize=%d:%s", font_name, font_size, font_options);
+void configure_colors_16()
+{
+	char tmp[20];
+
+	if (agl_get_string("color1", tmp))
+		colorname[0] = strdup(tmp);
+	if (agl_get_string("color2", tmp))
+		colorname[1] = strdup(tmp);
+	if (agl_get_string("color3", tmp))
+		colorname[2] = strdup(tmp);
+	if (agl_get_string("color4", tmp))
+		colorname[3] = strdup(tmp);
+	if (agl_get_string("color5", tmp))
+		colorname[4] = strdup(tmp);
+	if (agl_get_string("color6", tmp))
+		colorname[5] = strdup(tmp);
+	if (agl_get_string("color7", tmp))
+		colorname[6] = strdup(tmp);
+	if (agl_get_string("color8", tmp))
+		colorname[7] = strdup(tmp);
+	if (agl_get_string("color9", tmp))
+		colorname[8] = strdup(tmp);
+	if (agl_get_string("color10", tmp))
+		colorname[9] = strdup(tmp);
+	if (agl_get_string("color11", tmp))
+		colorname[10] = strdup(tmp);
+	if (agl_get_string("color12", tmp))
+		colorname[11] = strdup(tmp);
+	if (agl_get_string("color13", tmp))
+		colorname[12] = strdup(tmp);
+	if (agl_get_string("color14", tmp))
+		colorname[13] = strdup(tmp);
+	if (agl_get_string("color15", tmp))
+		colorname[14] = strdup(tmp);
+	if (agl_get_string("color16", tmp))
+		colorname[15] = strdup(tmp);
+
+	/* for (int i = 0; i < 10; i++) { */
+	/* 	if (agl_get_string(key, tmp)) */
+	/* 		colorname[i] = strdup(tmp); */
+	/* 	key[5]++; */
+	/* } */
+	/* strcpy(&key[5], "10"); */
+	/* for (int i = 10; i < 16; i++) { */
+	/* 	if (agl_get_string(key, tmp)) */
+	/* 		colorname[i] = strdup(tmp); */
+	/* 	key[6]++; */
+	/* } */
 }
 
 void parse_config_file()
@@ -2148,26 +2173,11 @@ void parse_config_file()
 		return;
 
 	config_font();
-	set_int("borderpx", &borderpx);
-	set_int("cols", &cols);
-	set_int("rows", &rows);
-	set_string("color1", &colorname[0]);
-	set_string("color2", &colorname[1]);
-	set_string("color3", &colorname[2]);
-	set_string("color4", &colorname[3]);
-	set_string("color5", &colorname[4]);
-	set_string("color6", &colorname[5]);
-	set_string("color7", &colorname[6]);
-	set_string("color8", &colorname[7]);
-	set_string("color9", &colorname[8]);
-	set_string("color10", &colorname[9]);
-	set_string("color11", &colorname[10]);
-	set_string("color12", &colorname[11]);
-	set_string("color13", &colorname[12]);
-	set_string("color14", &colorname[13]);
-	set_string("color15", &colorname[14]);
-	set_string("color16", &colorname[15]);
-	set_float("alpha", &alpha);
+	configure_colors_16();
+	agl_get_int("borderpx", &borderpx);
+	agl_get_int("cols", &cols);
+	agl_get_int("rows", &rows);
+	agl_get_float("alpha", &alpha);
 
 	agl_destory();
 }

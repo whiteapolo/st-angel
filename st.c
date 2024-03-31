@@ -2745,3 +2745,58 @@ redraw(void)
 	tfulldirt();
 	draw();
 }
+void print_line(Line *l, int col)
+{
+	for (int i = 0; i < col; i++) {
+		printf("%c", (*l)[i].u);
+	}
+	putchar('\n');
+}
+
+/* void external(const Arg *) */
+/* { */
+/* 	printf("histi: %d\n", term.histi); */
+/* 	for (int i = 0; i < term.histi; i++) { */
+/* 		print_line(&term.hist[i], term.col); */
+/* 	} */
+/* } */
+
+int linestr(Line *l, int col, const char *str)
+{
+	char tmp[col];
+	int i;
+	for (i = 0; i < col; i++) {
+		tmp[i] = (*l)[i].u;
+	}
+	tmp[i] = '\0';
+	/* printf("%s ?= %s\n", tmp, str); */
+	/* printf("RESULT: %d\n", strstr(tmp, str) != 0); */
+	if (strstr(tmp, str)) {
+		return 1;
+	}
+	return 0;
+}
+
+void external(const Arg *)
+{
+	/* Arg a = {.i = 1}; */
+	/* int i = term.histi; */
+	/* int done = 1; */
+	/* printf("term scr: %d\n", i); */
+	/* while ((!done || !linestr(term.line, term.col, "~/archive/suckless/st-angel $")) && i > 0) { */
+	/* 	kscrollup(&a); */
+	/* 	puts("still in"); */
+	/* 	i--; */
+	/* 	done = 1; */
+	/* } */
+
+	int s = 0;
+	for (int i = 0; i < term.histi; i++) {
+		if (linestr(&term.hist[i], term.col, "~/archive/suckless/st-angel $"))
+			s = term.histi - i + 10;
+	}
+	if (s)
+		kscrollup(&(Arg){.i = s});
+
+
+}
