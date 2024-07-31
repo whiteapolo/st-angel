@@ -319,6 +319,7 @@ utf8decodebyte(char c, size_t *i)
 	for (*i = 0; *i < LEN(utfmask); ++(*i))
 		if (((uchar)c & utfmask[*i]) == utfbyte[*i])
 			return (uchar)c & ~utfmask[*i];
+			// return (uchar)c;
 
 	return 0;
 }
@@ -678,6 +679,8 @@ execsh(char *cmd, char **args)
 		else
 			die("who are you?\n");
 	}
+
+	/* sh = "/home/white/.local/bin/mysh"; */
 
 	if ((sh = getenv("SHELL")) == NULL)
 		sh = (pw->pw_shell[0]) ? pw->pw_shell : cmd;

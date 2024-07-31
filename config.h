@@ -109,7 +109,7 @@ float alpha = 0.85;
 
 static char *colorname[] = {
 
-  "#181818",
+  "#282828",
 
   "#cc241d",
   "#98971a",
@@ -154,11 +154,11 @@ static unsigned int cursorshape = 2;
  * Default columns and rows numbers
  */
 
-static unsigned int cols = 80;
-static unsigned int rows = 21;
+// static unsigned int cols = 80;
+// static unsigned int rows = 21;
 
-/* static unsigned int cols = 64; */
-/* static unsigned int rows = 18; */
+static unsigned int cols = 64;
+static unsigned int rows = 18;
 
 /*
  * Default colour and shape of the mouse cursor
@@ -215,8 +215,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	{ XK_ANY_MOD,            XK_Page_Up,     kscrollup,      {.i =  2} },
-	{ XK_ANY_MOD,            XK_Page_Down,   kscrolldown,    {.i =  2} },
+	// { XK_ANY_MOD,            XK_Page_Up,     kscrollup,      {.i =  2} },
+	// { XK_ANY_MOD,            XK_Page_Down,   kscrolldown,    {.i =  2} },
 	//{ ControlMask,            XK_k,     kscrollup,      {.i =  2} },
 	//{ ControlMask,            XK_j,			kscrolldown,    {.i =  2} },
 };
